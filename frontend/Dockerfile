@@ -18,8 +18,8 @@ RUN ng build --configuration=production
 # Production stage
 FROM nginx:alpine
 
-# Copy built app from build stage
-COPY --from=build /app/dist/frontend /usr/share/nginx/html
+# Copy built app from build stage - FIXED PATH
+COPY --from=build /app/dist/ /usr/share/nginx/html
 
 # Copy nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
